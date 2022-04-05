@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <title>drag&amp;drop</title>
+  </head>
+  <body style='min-height: 100vh'>
+    <img src='http://fe.it-academy.by/Sites/0000007/sax.jpg'>
+<img src='http://fe.it-academy.by/Sites/0000007/Yin_and_Yang.png' width=100>
+<img src='http://fe.it-academy.by/Sites/0000007/Man-and-woman.png' width=150>
+<img src='http://fe.it-academy.by/Sites/0000007/No_smoking.png' style='padding-left: 50px'>
+
+
+<script>
+  "use strict";
+  
+window.addEventListener('load',documentReady,false);
+function documentReady(){ 
+let imgArr=document.body.getElementsByTagName("img")
+let  img;
+for( let i=0; i<imgArr.length; i++){
+    img=imgArr[i]
+    img.style.left=img.offsetLeft+"px"
+    img.style.top=img.offsetTop+"px"
+
+}
+for( let a=0; a<imgArr.length; a++){
+    img=imgArr[a]
+    img.style.position="absolute"
+}
+let mouseShiftX=0;
+let mouseShiftY=0;
+ document.body.onmousedown=mouseDown;
+
+function mouseDown(EO){
+    EO.preventDefault();
+    let mouseX=EO.pageX
+    let mouseY=EO.pageY
+    mouseShiftX=mouseX-EO.target.offsetLeft
+    mouseShiftY=mouseY-EO.target.offsetTop
+    let elem=EO.target
+    document.body.appendChild(elem)
+    document.body.onmousemove = mouseMove
+    function mouseMove(EO){
+    EO.preventDefault()
+    elem.style.left=(EO.pageX-mouseShiftX)+"px"
+    elem.style.top=(EO.pageY-mouseShiftY)+"px"
+}
+    document.body.onmouseup = mouseUp   
+} 
+function mouseUp(EO){
+    EO.preventDefault();
+    document.body.onmousemove=null
+    document.body.onmouseup=null
+    console.log("up")
+}
+
+}
+
+</script>
+
+  </body>
+</html>
+
