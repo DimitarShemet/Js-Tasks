@@ -27,10 +27,10 @@ for( let i=0; i<imgArr.length; i++){
 for( let a=0; a<imgArr.length; a++){
     img=imgArr[a]
     img.style.position="absolute"
-}
+
 let mouseShiftX=0;
 let mouseShiftY=0;
- document.body.onmousedown=mouseDown;
+ img.onmousedown=mouseDown;
 
 function mouseDown(EO){
     EO.preventDefault();
@@ -47,7 +47,8 @@ function mouseDown(EO){
     elem.style.top=(EO.pageY-mouseShiftY)+"px"
 }
     document.body.onmouseup = mouseUp   
-} 
+}
+}
 function mouseUp(EO){
     EO.preventDefault();
     document.body.onmousemove=null
