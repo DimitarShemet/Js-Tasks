@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+}
+#court{
+    background-color:  #F0EE7E;
+    width: 600px;
+    height: 400px;
+    position: relative;
+    top: 0;
+}
+#racket1{
+    position: absolute;
+    width: 10px;
+    height: 70px;
+    background-color: #09AA57;
+    left: 0;
+    top: 50px;
+    
+}
+#racket2{
+    position: absolute;
+    background-color: #191497;
+    width: 10px;
+    height: 70px;
+    right: 0;
+    top: 50px;
+   
+}
+#ball{
+    background-color: #F02137;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+  
+}
+.scoreboard{
+    width: 600px;
+    text-align: center;
+    font-size: 30px;
+}
